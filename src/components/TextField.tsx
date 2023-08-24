@@ -1,16 +1,14 @@
 import { useState } from "react";
 // import classNames from "classnames";
-import styles from "./TextField.module.css";
 
 interface Props extends React.HTMLProps<HTMLInputElement> {
   id: string;
   name: string;
   className?: string;
   label?: string;
-  errorText?: string;
 }
 
-function TextField({ className, label, errorText, id, ...rest }: Props) {
+function TextField({ className, label, id, ...rest }: Props) {
   const [validationMessage, setValidationMessage] = useState<string>("");
 
   const onInvalid = (e: React.FormEvent<HTMLInputElement>) => {
@@ -29,29 +27,11 @@ function TextField({ className, label, errorText, id, ...rest }: Props) {
   // const wrapperCn = classNames(className, styles.wrapper);
 
   return (
-    <div className="">
-      <div>
-        {label && (
-          <div className={styles.label}>
-            <label htmlFor={id}>{label}</label>
-          </div>
-        )}
-      </div>
-      <div className="relative">
-        <input
-          id={id}
-          className={styles.input}
-          onInvalid={onInvalid}
-          onBlur={onBlur}
-          {...rest}
-        />
-      </div>
+    <div>
+      {label && <label htmlFor={id}>{label}</label>}
+      <input id={id} onInvalid={onInvalid} onBlur={onBlur} {...rest} />
 
-      {!!validationMessage && (
-        <div className={styles.validationMessage}>
-          {errorText || validationMessage}
-        </div>
-      )}
+      {validationMessage && <p className="error">{validationMessage}</p>}
     </div>
   );
 }
