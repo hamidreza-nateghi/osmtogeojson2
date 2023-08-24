@@ -1,8 +1,6 @@
 import { useState } from "react";
 
 interface Props extends React.HTMLProps<HTMLInputElement> {
-  id: string;
-  name: string;
   label?: string;
 }
 
@@ -26,7 +24,6 @@ export function TextField({ label, id, ...rest }: Props) {
     <div className="form-control">
       {label && <label htmlFor={id}>{label}</label>}
       <input id={id} onInvalid={onInvalid} onBlur={onBlur} {...rest} />
-
       {validationMessage && <p className="error">{validationMessage}</p>}
     </div>
   );

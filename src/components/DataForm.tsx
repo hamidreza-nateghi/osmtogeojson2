@@ -8,7 +8,6 @@ import { fetchOSMData, type BBox } from "../utils";
 export function DataForm() {
   const map = useMap();
   const [error, setError] = useState("");
-  const [geojson, setGeojson] = useState(null);
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -25,14 +24,13 @@ export function DataForm() {
         const data = await fetchOSMData(bbox);
         const geojson = osmtogeojson(data);
 
-        // setGeojson(geojson);
+        console.info(geojson);
 
         map.flyTo([minLon, minLat], 10, {
           duration: 2,
         });
       } catch (e) {
-        console.error(e.message);
-        setError(e.message);
+        setError((e as { message: string }).message);
       }
     }
   };
