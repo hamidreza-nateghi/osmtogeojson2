@@ -51,52 +51,58 @@ function App() {
   };
 
   return (
-    <div>
-      <Map ref={mapRef} geojsonData={geojson} />
-      <form onSubmit={onSubmit} noValidate>
-        <TextField
-          id="min_lon"
-          name="minLon"
-          label="Min Longitude"
-          type="number"
-          step="0.01"
-          required
-          min="-180"
-          max="180"
-        />
-        <TextField
-          id="min_lat"
-          name="minLat"
-          label="Min Latitude"
-          type="number"
-          step="0.01"
-          required
-          min="-90"
-          max="90"
-        />
-        <TextField
-          id="max_lon"
-          name="maxLon"
-          label="Max Longitude"
-          type="number"
-          step="0.01"
-          required
-          min="-180"
-          max="180"
-        />
-        <TextField
-          id="max_lat"
-          name="maxLat"
-          label="Max Latitude"
-          type="number"
-          step="0.01"
-          required
-          min="-90"
-          max="90"
-        />
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+    <main className="w-screen h-screen">
+      <div className="absolute form-wrapper">
+        <form onSubmit={onSubmit} noValidate>
+          <TextField
+            id="min_lon"
+            name="minLon"
+            label="Min Longitude"
+            type="number"
+            step="0.01"
+            required
+            min="-180"
+            max="180"
+          />
+          <TextField
+            id="min_lat"
+            name="minLat"
+            label="Min Latitude"
+            type="number"
+            step="0.01"
+            required
+            min="-90"
+            max="90"
+          />
+          <TextField
+            id="max_lon"
+            name="maxLon"
+            label="Max Longitude"
+            type="number"
+            step="0.01"
+            required
+            min="-180"
+            max="180"
+          />
+          <TextField
+            id="max_lat"
+            name="maxLat"
+            label="Max Latitude"
+            type="number"
+            step="0.01"
+            required
+            min="-90"
+            max="90"
+          />
+          <button type="submit" className="submit">
+            Submit
+          </button>
+        </form>
+      </div>
+      <div className="w-full h-full">
+        <Map ref={mapRef} geojsonData={geojson} />
+      </div>
+    </main>
   );
 }
 

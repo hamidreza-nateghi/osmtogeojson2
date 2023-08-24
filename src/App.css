@@ -1,10 +1,5 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
 label {
+  font-size: 14px;
   color: darkcyan;
   margin-bottom: 0.25em;
 }
@@ -22,15 +17,49 @@ input {
 }
 
 input:focus {
-  outline: 2px solid lightseagreen;
+  outline: 1px solid lightseagreen;
 }
 
-input:required {
-  border-left: 4px solid #888;
+.w-full {
+  width: 100%;
+}
+
+.w-screen {
+  width: 100vw;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.submit {
+  margin-top: 1em;
 }
 
 .error {
   font-size: 0.8em;
   color: red;
   margin-top: 0.5em;
+}
+
+.form-wrapper {
+  top: 24px;
+  left: 24px;
+  z-index: 1000;
+  background-color: white;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  width: 300px;
+}
+
+.form-control:not(:last-child) {
+  margin-bottom: 1em;
 }

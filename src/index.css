@@ -18,6 +18,7 @@
 *::before,
 *::after {
   margin: 0;
+  box-sizing: border-box;
 }
 
 a {
@@ -42,27 +43,17 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: rgb(89, 245, 245);
   cursor: pointer;
   transition: border-color 0.25s;
+  width: 100%;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }

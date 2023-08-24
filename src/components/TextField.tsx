@@ -27,7 +27,7 @@ function TextField({ className, label, id, ...rest }: Props) {
   // const wrapperCn = classNames(className, styles.wrapper);
 
   return (
-    <div>
+    <div className="form-control">
       {label && <label htmlFor={id}>{label}</label>}
       <input id={id} onInvalid={onInvalid} onBlur={onBlur} {...rest} />
 
