@@ -1,21 +1,28 @@
-import { forwardRef } from "react";
-import { MapContainer, TileLayer, GeoJSON, ZoomControl } from "react-leaflet";
+import { PropsWithChildren } from "react";
+import {
+  MapContainer,
+  TileLayer,
+  GeoJSON,
+  ZoomControl,
+  GeoJSONProps,
+} from "react-leaflet";
 
-const Map = forwardRef(function Map({ gejsonData, children }, ref) {
+type Props = {
+  geojsonData: GeoJSONProps["data"];
+};
+
+export function Map({ geojsonData, children }: PropsWithChildren<Props>) {
   return (
     <MapContainer
-      // ref={ref}
-      center={[30, 30]}
-      zoom={9}
-      style={{ height: "100%" }}
+      center={[52.5, 13.2]}
+      zoom={10}
       zoomControl={false}
+      className="h-full"
     >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      <GeoJSON data={gejsonData} />
+      <GeoJSON data={geojsonData} />
       <ZoomControl position="bottomright" />
       {children}
     </MapContainer>
   );
-});
-
-export default Map;
+}

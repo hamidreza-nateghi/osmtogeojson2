@@ -1,4 +1,4 @@
-type BBox = {
+export type BBox = {
   minLon: number;
   minLat: number;
   maxLon: number;

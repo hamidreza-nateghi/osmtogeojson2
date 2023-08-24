@@ -45,7 +45,7 @@ input:focus {
 }
 
 .error {
-  font-size: 0.8em;
+  font-size: 1em;
   color: red;
   margin-top: 0.5em;
 }
